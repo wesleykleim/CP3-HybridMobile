@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './src/views/LoginScreen';
 import Cadastro from './src/views/CadastrarScreen';
 import Lista from './src/views/ListarScreen';
-import api from './services/api';
+
 
 
 

@@ -1,8 +1,48 @@
-import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
+import { useEffect, useState } from "react";
+import { Text, View, StyleSheet, TouchableOpacity, ActivityIndicator, FlatList } from "react-native";
 
 export default function ListarScreen({navigation}) {
+
+    const [lista, setLista] = useState(true)
+
+    const getLista = async ()=> {
+
+        const response = await fetch('http://profkaz-api.keepinvest.com.br/item', {
+                method: 'GET',
+                headers: {
+                    "Authorization": "Bearer TOKEN",
+                    'Content-Type': 'application/json',
+                },
+                
+            });
+
+    }
+    
+    useEffect(()=> {
+
+        getLista();
+    }, [])
+
+
+
+
+
     return(
         <View style={styles.container}>
+            {lista ? <ActivityIndicator/> : (
+                <FlatList
+                
+                keyExtractor={({ id }) => id}
+                descricao={({ item }) => (
+                  <Text>{id.id}, {item.descricao}</Text>
+                )}
+              />
+
+
+            )}
+
+
+
            <Text style={styles.title}>Lista</Text>
             <View style={styles.separator} />
             <TouchableOpacity style={styles.btn}>

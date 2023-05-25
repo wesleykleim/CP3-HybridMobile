@@ -1,5 +1,5 @@
 import { Text, View, TextInput, StyleSheet, TouchableOpacity } from "react-native";
-import { postLogin, } from '../api/api';
+// import { postLogin, } from '../api/api';
 import React, { useState, } from 'react';
 
 export default function LoginScreen({ navigation }) {
@@ -14,6 +14,7 @@ export default function LoginScreen({ navigation }) {
     // const usernameString = JSON.stringify(username)
      
     // const passwordString = JSON.stringify(password) 
+    //console.log(typeof username,username, typeof password, password)
     
     const response = await fetch('http://profkaz-api.keepinvest.com.br/login', {
       method: 'POST',
@@ -22,24 +23,17 @@ export default function LoginScreen({ navigation }) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        "username": setUsername,
-        "password": setPassword,
+        "username": username,
+        "password": password,
       })
-      
-
-
-        
-      
-      
     }
     
     
     );
     if (response.status != 200) {
       console.error(`Erro : ${response.status}`);
-      console.log(typeof username, typeof password)
-      console.log(response)
-      // alert('Login incorreto')
+      //console.log(response)
+      alert('Usuario ou senha incorretos')
 
 
       return;
@@ -49,11 +43,9 @@ export default function LoginScreen({ navigation }) {
     }
     
 
-    // const response = await fetch('http://profkaz-api.keepinvest.com.br/login/' + username);
-
   }
 
-  // {console.log(username, password)}
+
 
 
 

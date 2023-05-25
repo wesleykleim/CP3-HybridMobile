@@ -13,15 +13,15 @@ export default function CadastrarScreen({navigation}) {
         const response = await fetch('http://profkaz-api.keepinvest.com.br/user/sign-up', {
             method: 'POST',
             headers: {
-                Accept: 'application/json',
+                
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                username: 'setUsername',
-                email: 'setEmail',
-                nomeCompleto: 'setNomeCompleto',
-                password: 'setPassword',
-                confirmPassword: 'setConfirmPassword',
+                username: username,
+                email: email,
+                nomeCompleto: nomeCompleto,
+                password: password,
+                confirmPassword: confirmPassword,
             })
         });
         
@@ -42,7 +42,7 @@ export default function CadastrarScreen({navigation}) {
             <TextInput placeholder="Nome Completo" style={styles.input} value={ nomeCompleto } onChangeText={(value) => setNomeCompleto(value)}/>
             <TextInput placeholder="Password" style={styles.input} value={ password } onChangeText={(value) => setPassword(value)}/>
             <TextInput placeholder="Confirm Password" style={styles.input} value={ confirmPassword } onChangeText={(value) => setConfirmPassword(value)}/>
-            <TouchableOpacity onPress={cadastrar()} style={styles.btn}>
+            <TouchableOpacity onPress={()=>cadastrar()} style={styles.btn}>
                 <Text style={styles.txt}>Cadastrar</Text>
             </TouchableOpacity>
         </View>

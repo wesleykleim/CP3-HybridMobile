@@ -6,7 +6,7 @@ export default function ListarScreen({navigation}) {
            <Text style={styles.title}>Lista</Text>
             <View style={styles.separator} />
             <TouchableOpacity style={styles.btn}>
-                <Text style={styles.txt} onPress={() => navigation.navigate('Login')}>Sair</Text>
+                <Text style={styles.txt} onPress={() => navigation.replace('Login')}>Sair</Text>
             </TouchableOpacity>
             <Text style={styles.lista}>Exemplo 1</Text>
             <Text style={styles.lista}>Exemplo 2</Text>

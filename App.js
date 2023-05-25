@@ -1,14 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Login from './views/LoginScreen';
-import Cadastro from './views/CadastrarScreen';
-import Lista from './views/ListarScreen';
+import Login from './src/views/LoginScreen';
+import Cadastro from './src/views/CadastrarScreen';
+import Lista from './src/views/ListarScreen';
+import api from './services/api';
+
+
 
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
+  // const [usuario, setUs] = useState([])
+  // use 
   return (
       <NavigationContainer>
       <Stack.Navigator initialRouteName='Login'>
